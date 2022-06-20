@@ -3,11 +3,12 @@ const { Telegraf } = require('telegraf')
 Tail = require('tail').Tail
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
+var chatId = process.env.CHAT_ID
+
 bot.catch((err, ctx) => {
   console.log(`Ooops, encountered an error for ${ctx.updateType}`, err)
 })
 
-var chatId = 1065567851
 
 dnsmasq_tail = new Tail('/var/log/dnsmasq')
 nextcloud_tail = new Tail('/raid/cloud/files/data/nextcloud.log')
